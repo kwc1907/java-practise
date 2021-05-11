@@ -1,22 +1,43 @@
-package java�ϻ�4;
-import java.util.*;
+package javaÉĎťú4;
+interface service
+{
+void method1();
+void method2();
+}
+class imple1 implements service
+{
+public void method1() {System.out.println("imple1 method1");}
+public void method2() {System.out.println("imple1 method2");}
+}
+class imple2 implements service
+{
+public void method1() {System.out.println("imple2 method1");}
+public void method2() {System.out.println("imple2 method2");}
+}
+abstract class factory
+{
+abstract service creat();	
+}
+class imple1factory extends factory
+{
+service creat() {return new imple1();}	
+}
+class imple2factory extends factory
+{
+service creat() {return new imple2();}	
+}
 public class practise4 {
+	public static void test(factory t)
+	{
+		service x=t.creat();
+		x.method1();
+		x.method2();
+	}
 	public static void main(String[] args) {
-		Integer[] a=new Integer[new Random().nextInt(16)+5];
-		for(int i=0;i<a.length;i++)
-		{
-			a[i]=new Random().nextInt(20)-10;
-		}
-		Integer[] b=a;
-		Arrays.sort(b,new Comparator<Integer>()
-				{public int compare(Integer x,Integer y)
-				{
-				int a=(int) Math.pow(x,2);
-				int b=(int)Math.pow(y,2);
-				return a>b ? -1 :(a==b ? 0:1);
-				}
-				});
-		System.out.println(Arrays.toString(b));
+	factory a=new imple1factory();
+	factory b=new imple2factory();
+	test(a);
+	test(b);
 	}
 
 }

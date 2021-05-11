@@ -26,6 +26,7 @@ class imple2factory extends factory
 {
 service creat() {return new imple2();}	
 }
+
 public class practise4 {
 	public static void test(factory t)
 	{

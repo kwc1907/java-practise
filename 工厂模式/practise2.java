@@ -8,6 +8,7 @@ interface  factory
 {
 service creat();	
 }
+
 class imple1 implements service
 {
 public void method1() {System.out.println("imple1 method1");}
